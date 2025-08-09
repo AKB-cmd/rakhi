@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raksha Bandhan Celebration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Playfair+Display:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Playfair Display', serif;
+      background: linear-gradient(135deg, #fff8f0, #fde2e4);
+      color: #2c2c2c;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin-bottom: 25px;
+      color: #d81159;
+      animation: glow 3s ease-in-out infinite alternate, fadeInDown 1.5s ease-out;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 15px #ffd5d2, 0 0 30px #ff6f61; }
+      to { text-shadow: 0 0 40px #ff2e63, 0 0 70px #ffd5d2; }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .significance {
+      max-width: 800px;
+      font-size: 1.25rem;
+      line-height: 1.9;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 25px;
+      color: #5b0e2d;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      animation: fadeIn 2s ease-in-out, floatUp 4s ease-in-out infinite alternate;
+      margin-bottom: 40px;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+    .rainBg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .rainBg i {
+      position: absolute;
+      top: -7%;
+      width: 10px;
+      height: 40px;
+      border-radius: 10px;
+      animation: animate 6s linear;
+    }
+    @keyframes animate {
+      0% { top: -7%; opacity: 0; }
+      10% { opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+    footer {
+      font-size: 1.3rem;
+      color: #8b0035;
+      margin-top: 20px;
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); color: #8b0035; }
+      50% { transform: scale(1.05); color: #d81159; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Warm Wishes & Eternal Love on Raksha Bandhan, Dearest Akka! 💖</h1>
+  <div class="significance">
+    Raksha Bandhan, meaning "the bond of protection," is a festival celebrating the eternal love between siblings. Sisters tie a sacred Rakhi on their brothers’ wrists, symbolizing love, blessings, and prayers for their well-being. In return, brothers promise to protect and support their sisters for life. The day is filled with joy, heartfelt moments, sweets, and gifts.
+  </div>
+
+  <div class="rainBg"></div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+  </audio>
+  <footer><i class="fas fa-heart"></i> Made with love using AI <i class="fas fa-heart"></i></footer>
+
+  <script>
+    document.addEventListener('click', function() {
+      const music = document.getElementById('bg-music');
+      if (music.paused) {
+        music.play();
+      }
+    });
+
+    let colors = ['#318fb5', '#b52b65', '#2ecc71', '#f1c40f', '#e67e22', '#c0392b', '#9b59b6'];
+    setInterval(() => {
+      let i = document.createElement('i');
+      i.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
+      i.style.background = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('.rainBg').appendChild(i);
+    }, 500);
+    setInterval(() => {
+      if (document.querySelector('.rainBg').firstChild) {
+        document.querySelector('.rainBg').firstChild.remove();
+      }
+    }, 6000);
+  </script>
+</body>
+</html>
